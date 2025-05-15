@@ -18,7 +18,7 @@ var GetProfileRunningStatusTool = func() mcp.Tool {
 			mcp.WithDescription("This interface is used to query the current status (on or off) of the specified browser profile. The user needs to provide the profile ID, and the interface will return the profile status information. The MoreLogin application needs to be updated to version 2.34.0 or above."),
 		},
 		[]mcp.ToolOption{
-			mcp.WithNumber(
+			mcp.WithString(
 				"envId",
 				mcp.Description("There is and can only be one Profile ID and profile number passed."),
 			),

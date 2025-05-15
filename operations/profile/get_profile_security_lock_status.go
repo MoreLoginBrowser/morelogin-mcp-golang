@@ -18,7 +18,7 @@ var GetProfileSecurityLockStatusTool = func() mcp.Tool {
 			mcp.WithDescription("Get the locking status of the profile security lock. You need to update MoreLogin client to version 2.14.0 or above."),
 		},
 		[]mcp.ToolOption{
-			mcp.WithNumber(
+			mcp.WithString(
 				"envId",
 				mcp.Description("Profile ID"),
 			),

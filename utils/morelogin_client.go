@@ -119,7 +119,7 @@ func (g *MoreLoginClient) SetHeaders(headers map[string]string) *MoreLoginClient
 func (g *MoreLoginClient) Do() (*MoreLoginClient, error) {
 	g.Response = nil
 	_payload, _ := json.Marshal(g.Payload)
-	println("request body", string(_payload))
+	println("request body", g.Url, g.Method, string(_payload))
 	req, err := http.NewRequest(g.Method, g.Url, bytes.NewReader(_payload))
 	if err != nil {
 		return nil, NewInternalError(err)

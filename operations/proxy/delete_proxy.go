@@ -2,6 +2,7 @@ package proxy
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/mark3labs/mcp-go/mcp"
 	"morelogin.com/mcp/operations/types"
@@ -18,7 +19,7 @@ var DeleteProxyTool = func() mcp.Tool {
 			mcp.WithDescription("Batch delete proxies. The MoreLogin application needs to be updated to version 2.9.0 and above."),
 		},
 		[]mcp.ToolOption{
-			mcp.WithArray(
+			mcp.WithNumber(
 				"ids",
 				mcp.Description("proxy ID"),
 				mcp.Items(map[string]interface{}{
@@ -33,7 +34,15 @@ var DeleteProxyTool = func() mcp.Tool {
 
 func DeleteProxyHandleFunc(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	apiUrl := fmt.Sprintf("/api/proxyInfo/delete")
-	moreLoginClient := utils.NewMoreLoginClient("POST", apiUrl, utils.WithPayload(request.Params.Arguments))
+
+	req, _ := json.Marshal(request.Params.Arguments)
+	var payload types.DelProxyInfo
+	err := json.Unmarshal(req, &payload)
+	if err != nil {
+		return nil, err
+	}
+
+	moreLoginClient := utils.NewMoreLoginClient("POST", apiUrl, utils.WithPayload(payload.ID))
 	data := &types.CommonResponse[bool]{}
 	return moreLoginClient.HandleMCPResult(data)
 }

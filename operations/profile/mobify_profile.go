@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	ModifyProfileToolName = "profile_quick_create"
+	ModifyProfileToolName = "modify_profile"
 )
 
 var ModifyProfileTool = func() mcp.Tool {
@@ -19,7 +19,7 @@ var ModifyProfileTool = func() mcp.Tool {
 		},
 		[]mcp.ToolOption{
 			// 必填字段
-			mcp.WithNumber(
+			mcp.WithString(
 				"envId",
 				mcp.Description("Profile ID\n\n"),
 				mcp.Required(),

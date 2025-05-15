@@ -42,6 +42,7 @@ var CreateProxyTool = func() mcp.Tool {
 			mcp.WithNumber(
 				"ipMonitor",
 				mcp.Description("IP change monitoring 0: No access, 1: Warning"),
+				mcp.DefaultNumber(0),
 				mcp.Max(1),
 				mcp.Min(0),
 			),

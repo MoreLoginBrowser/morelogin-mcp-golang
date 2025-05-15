@@ -48,12 +48,12 @@ type AdvancedCreateProfile struct {
 
 // AccountInfo Account Information
 type AccountInfo struct {
-	PlatformId  int64  `json:"platformId"`            // Platform ID, 9999-Custom platform
+	PlatformId  string `json:"platformId"`            // Platform ID, 9999-Custom platform
 	CustomerUrl string `json:"customerUrl,omitempty"` // Custom platform URL, required when platformId=9999
 	Username    string `json:"username,omitempty"`    // Username, limited to 64 characters
 	Password    string `json:"password,omitempty"`    // Password, limited to 50 characters
 	OtpSecret   string `json:"otpSecret,omitempty"`   // 2FA Secret Key
-	SiteId      int64  `json:"siteId,omitempty"`      // Site ID
+	SiteId      string `json:"siteId,omitempty"`      // Site ID
 }
 
 // AdvancedSetting Advanced Configuration

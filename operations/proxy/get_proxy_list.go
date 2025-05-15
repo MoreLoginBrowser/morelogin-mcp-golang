@@ -85,7 +85,7 @@ var GetProxyListTool = func() mcp.Tool {
 
 func GetProxyListHandleFunc(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	apiUrl := fmt.Sprintf("/api/proxyInfo/page")
-	moreLoginClient := utils.NewMoreLoginClient("GET", apiUrl, utils.WithPayload(request.Params.Arguments))
+	moreLoginClient := utils.NewMoreLoginClient("POST", apiUrl, utils.WithPayload(request.Params.Arguments))
 	data := &types.CommonResponse[types.CommonPageRes[types.ProxyInfo]]{}
 	return moreLoginClient.HandleMCPResult(data)
 }

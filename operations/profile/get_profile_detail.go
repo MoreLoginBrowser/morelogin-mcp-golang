@@ -18,7 +18,7 @@ var GetProfileDetailTool = func() mcp.Tool {
 			mcp.WithDescription("Query profile details. Users can only query profile information for which they have permission. You need to update MoreLogin client to version 2.14.0 or above."),
 		},
 		[]mcp.ToolOption{
-			mcp.WithNumber(
+			mcp.WithString(
 				"envId",
 				mcp.Description("Profile ID Send the profile ID or the profile order number. If both are sent, the profile ID takes precedence."),
 			),

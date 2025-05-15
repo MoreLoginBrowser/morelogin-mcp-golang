@@ -1,7 +1,7 @@
 package types
 
 // QuickCreateResponse create Profile response
-type QuickCreateResponse = CommonResponse[[]int64]
+type QuickCreateResponse = CommonResponse[[]string]
 
 // StartProfileRes
 type StartProfileRes struct {
@@ -53,7 +53,7 @@ type ProfileDetailInfo struct {
 	IsEncrypt          int                `json:"isEncrypt"`          // Whether “end-to-end encryption”, 0: No, 1: Yes
 	OperatorSystemId   int                `json:"operatorSystemId"`   // Operating system type, 1: Windows, 2: macOS, 3: Android, 4: IOS
 	ProxyId            string             `json:"proxyId"`            // Proxy ID
-	TagIds             []int64            `json:"tagIds"`             // Tag ID list
+	TagIds             []string           `json:"tagIds"`             // Tag ID list
 	UaVersion          int                `json:"uaVersion"`          // UA version
 }
 
@@ -74,7 +74,7 @@ type UA struct {
 }
 
 type Resolution struct {
-	Id    int64  `json:"id"`    //  Resolution ID
+	Id    string `json:"id"`    //  Resolution ID
 	Value string `json:"value"` // Resolution value
 }
 
@@ -83,7 +83,7 @@ type Platform struct {
 	CategoryID string `json:"categoryId"` // Category ID
 	GroupName  string `json:"groupName"`  // Group name
 	Groups     int    `json:"groups"`     // Group, e.g. 0: Amazon
-	ID         string `json:"id"`         // Platform ID
+	ID         int64  `json:"id"`         // Platform ID
 	IsCustomer bool   `json:"isCustomer"` // Whether to customize the platform
 	Logo       string `json:"logo"`       // Platform logo
 	Name       string `json:"name"`       // Platform name
@@ -108,12 +108,12 @@ type TimeZoneAndLanguage struct {
 	TimeZoneList []TimeZone `json:"time_zone_list"` // TimeZone
 }
 type TimeZone struct {
-	Id    int    `json:"id"`              // TimeZone Id
+	Id    string `json:"id"`              // TimeZone Id
 	Value string `json:"value,omitempty"` // TimeZone value
 }
 
 type Language struct {
-	Id    int    `json:"id"`              // Language Id
+	Id    string `json:"id"`              // Language Id
 	Value string `json:"value,omitempty"` // Language value
 }
 
