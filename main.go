@@ -102,7 +102,7 @@ func run(transport, addr string) error {
 func main() {
 	apiBase := flag.String("api-base", "", "MoreLogin API base URL (default: http://127.0.0.1:40000)")
 	showVersion := flag.Bool("version", false, "Show version information")
-	transport := flag.String("transport", "stdio", "Transport type (stdio or sse)")
+	transport := flag.String("transport", "sse", "Transport type (stdio or sse)")
 	addr := flag.String("sse-address", "localhost:8000", "The host and port to start the sse server on")
 	flag.Parse()
 
@@ -118,5 +118,4 @@ func main() {
 	if err := run(*transport, *addr); err != nil {
 		panic(err)
 	}
-
 }

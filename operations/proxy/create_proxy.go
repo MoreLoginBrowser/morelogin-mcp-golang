@@ -101,6 +101,6 @@ var CreateProxyTool = func() mcp.Tool {
 func CreateProxyHandleFunc(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	apiUrl := fmt.Sprintf("/api/proxyInfo/add")
 	moreLoginClient := utils.NewMoreLoginClient("POST", apiUrl, utils.WithPayload(request.Params.Arguments))
-	data := &types.CommonResponse[int64]{}
+	data := &types.CommonResponse[string]{}
 	return moreLoginClient.HandleMCPResult(data)
 }

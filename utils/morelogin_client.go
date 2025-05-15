@@ -119,6 +119,7 @@ func (g *MoreLoginClient) SetHeaders(headers map[string]string) *MoreLoginClient
 func (g *MoreLoginClient) Do() (*MoreLoginClient, error) {
 	g.Response = nil
 	_payload, _ := json.Marshal(g.Payload)
+	println("request body", string(_payload))
 	req, err := http.NewRequest(g.Method, g.Url, bytes.NewReader(_payload))
 	if err != nil {
 		return nil, NewInternalError(err)
@@ -202,6 +203,7 @@ func (g *MoreLoginClient) HandleMCPResult(object any) (*mcp.CallToolResult, erro
 	}
 
 	body, err := g.GetRespBody()
+	println("response body", g.Url, string(body))
 	if err != nil {
 		return mcp.NewToolResultError(fmt.Sprintf("Failed to read response body: %s", err.Error())),
 			NewInternalError(err)

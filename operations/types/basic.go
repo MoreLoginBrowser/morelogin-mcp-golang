@@ -14,8 +14,8 @@ type EndpointConfig struct {
 }
 
 type CommonPageRes[T any] struct {
-	Current  int `json:"current"`  // current page number
-	Pages    int `json:"pages"`    // page number
-	Total    int `json:"total"`    // total number
-	DataList []T `json:"dataList"` // Webdriver Path
+	Current  string `json:"current"`  // current page number
+	Pages    string `json:"pages"`    // page number
+	Total    string `json:"total"`    // total number
+	DataList []T    `json:"dataList"` // Webdriver Path
 }

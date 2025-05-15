@@ -33,6 +33,6 @@ var CreateGroupTool = func() mcp.Tool {
 func CreateGroupHandleFunc(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	apiUrl := fmt.Sprintf("/api/envgroup/create")
 	moreLoginClient := utils.NewMoreLoginClient("POST", apiUrl, utils.WithPayload(request.Params.Arguments))
-	data := &types.CommonResponse[int64]{}
+	data := &types.CommonResponse[types.GroupListRes]{}
 	return moreLoginClient.HandleMCPResult(data)
 }

@@ -5,7 +5,7 @@ type QuickCreateResponse = CommonResponse[[]int64]
 
 // StartProfileRes
 type StartProfileRes struct {
-	EnvId     int64  `json:"envId"`     // Profile ID
+	EnvId     string `json:"envId"`     // Profile ID
 	DebugPort string `json:"debugPort"` // debugPort
 	Webdriver string `json:"webdriver"` // Webdriver Path
 }
@@ -20,23 +20,23 @@ type StartProfileResponse = CommonResponse[StartProfileRes]
 
 // ProfilePageRes
 type ProfilePageRes struct {
-	Current  int               `json:"current"`  // current page number
-	Pages    int               `json:"pages"`    // page number
-	Total    int               `json:"total"`    // total number
+	Current  string            `json:"current"`  // current page number
+	Pages    string            `json:"pages"`    // page number
+	Total    string            `json:"total"`    // total number
 	DataList []PageProfileInfo `json:"dataList"` // Webdriver Path
 }
 
 // PageProfileInfo
 type PageProfileInfo struct {
-	ID      int64  `json:"id"`      // Profile ID
+	ID      string `json:"id"`      // Profile ID
 	EnvName string `json:"envName"` // Profile name
-	GroupID int    `json:"groupId"` // Group ID
-	ProxyID int    `json:"proxyId"` // Proxy ID
+	GroupID string `json:"groupId"` // Group ID
+	ProxyID string `json:"proxyId"` // Proxy ID
 }
 
 type ProfileSecurityLockStatus struct {
-	EnvId  int64 `json:"envId"`  // Profile ID
-	Locked bool  `json:"locked"` // Profile name
+	EnvId  string `json:"envId"`  // Profile ID
+	Locked bool   `json:"locked"` // Profile name
 }
 
 type ProfileDetailInfo struct {
@@ -48,11 +48,11 @@ type ProfileDetailInfo struct {
 	Cookies            string             `json:"cookies"`            // Cookie
 	EnvName            string             `json:"envName"`            // Profile name
 	EnvRemark          string             `json:"envRemark"`          // Profile remark
-	GroupId            int                `json:"groupId"`            // Group ID
-	Id                 int                `json:"id"`                 // Profile ID
+	GroupId            string             `json:"groupId"`            // Group ID
+	Id                 string             `json:"id"`                 // Profile ID
 	IsEncrypt          int                `json:"isEncrypt"`          // Whether “end-to-end encryption”, 0: No, 1: Yes
 	OperatorSystemId   int                `json:"operatorSystemId"`   // Operating system type, 1: Windows, 2: macOS, 3: Android, 4: IOS
-	ProxyId            int64              `json:"proxyId"`            // Proxy ID
+	ProxyId            string             `json:"proxyId"`            // Proxy ID
 	TagIds             []int64            `json:"tagIds"`             // Tag ID list
 	UaVersion          int                `json:"uaVersion"`          // UA version
 }
@@ -80,10 +80,10 @@ type Resolution struct {
 
 // Platform
 type Platform struct {
-	CategoryID int64  `json:"categoryId"` // Category ID
+	CategoryID string `json:"categoryId"` // Category ID
 	GroupName  string `json:"groupName"`  // Group name
 	Groups     int    `json:"groups"`     // Group, e.g. 0: Amazon
-	ID         int64  `json:"id"`         // Platform ID
+	ID         string `json:"id"`         // Platform ID
 	IsCustomer bool   `json:"isCustomer"` // Whether to customize the platform
 	Logo       string `json:"logo"`       // Platform logo
 	Name       string `json:"name"`       // Platform name
@@ -95,7 +95,7 @@ type Platform struct {
 type Site struct {
 	Country   string `json:"country"`   // Country
 	Host      string `json:"host"`      // Site Domain Name
-	ID        int64  `json:"id"`        // Site ID
+	ID        string `json:"id"`        // Site ID
 	IsDefault bool   `json:"isDefault"` // Is default site
 	Logo      string `json:"logo"`      // Logo
 	Name      string `json:"name"`      // Size name
