@@ -24,6 +24,6 @@ var GetBrowserKernelTool = func() mcp.Tool {
 func GetBrowserKernelToolHandleFunc(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	apiUrl := fmt.Sprintf("/api/env/advanced/ua/versions")
 	moreLoginClient := utils.NewMoreLoginClient("GET", apiUrl)
-	data := &types.CommonResponse[types.BrowserKernel]{}
+	data := &types.CommonResponse[[]types.BrowserKernel]{}
 	return moreLoginClient.HandleMCPResult(data)
 }
