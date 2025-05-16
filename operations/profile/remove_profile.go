@@ -22,7 +22,7 @@ var RemoveProfileTool = func() mcp.Tool {
 				"envIds",
 				mcp.Description("Profile ID Send the profile ID or the profile order number. If both are sent, the profile ID takes precedence."),
 				mcp.Items(map[string]interface{}{
-					"type": "integer",
+					"type": "string",
 				}),
 			),
 			mcp.WithBoolean(
