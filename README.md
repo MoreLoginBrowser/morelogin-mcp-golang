@@ -44,3 +44,5 @@ Check the MCP Morelogin version:
 mcp-morelogin --version
 ```
 
+that it is certified by MCPHub 
+url:https://mcphub.com/mcp-servers/moreloginbrowser/morelogin-mcp-golang
